@@ -1,0 +1,106 @@
+<div class="collapse navbar-collapse" id="navbarVerticalCollapse" onmouseleave="changehtmlhoverouttagcss()"
+onmouseover="changehtmlhoverovertagcss()">
+<div class="navbar-vertical-content scrollbar">
+  <ul class="navbar-nav flex-column mb-3" id="navbarVerticalNav">
+
+    <!-- CUSTOMER Section -->
+    <li class="nav-item" *ngIf="isUser" >
+      <div class="col ps-0">
+        <hr class="mb-0 navbar-vertical-divider" />
+      </div>
+      <a class="nav-link dropdown-indicator" href="customerSection" role="button" data-bs-toggle="collapse"
+        aria-expanded="true" aria-controls="customerSection">
+        <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+              class="fas fa-users"></span></span><span class="nav-link-text ps-1">CUSTOMER</span>
+        </div>
+      </a>
+      <ul class="nav collapse show" id="customerSection">
+        <li class="nav-item"><a class="nav-link active" href="fxm/admin-dashboard" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Load Application</span></div>
+          </a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="fxm/admin-dashboard" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">All Applications</span></div>
+          </a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Reconcile</span></div>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <!-- ADMIN Section -->
+    <li class="nav-item" *ngIf="isAdmin">
+      <div class="col ps-0">
+        <hr class="mb-0 navbar-vertical-divider" />
+      </div>
+      <a class="nav-link dropdown-indicator" href="adminSection" role="button" data-bs-toggle="collapse"
+        aria-expanded="true" aria-controls="adminSection">
+        <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+              class="fas fa-user-tie"></span></span><span class="nav-link-text ps-1">ADMIN</span>
+        </div>
+      </a>
+      <ul class="nav collapse show" id="adminSection">
+        <li class="nav-item"><a class="nav-link" href="" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">View Application</span></div>
+          </a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Approve/Deny</span></div>
+          </a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Reports</span></div>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <!-- SETTINGS Section -->
+    <li class="nav-item">
+      <div class="col ps-0">
+        <hr class="mb-0 navbar-vertical-divider" />
+      </div>
+      <a class="nav-link dropdown-indicator" href="settingsSection" role="button" data-bs-toggle="collapse"
+        aria-expanded="true" aria-controls="settingsSection">
+        <div class="d-flex align-items-center"><span class="nav-link-icon"><span
+              class="fas fa-gears"></span></span><span class="nav-link-text ps-1">SETTINGS</span>
+        </div>
+      </a>
+      <ul class="nav collapse show" id="settingsSection">
+        <li class="nav-item"><a class="nav-link" href="" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Profile</span></div>
+          </a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Load Instruction</span></div>
+          </a>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="" data-bs-toggle="" aria-expanded="false">
+            <div class="d-flex align-items-center"><span class="nav-link-text ps-1">Sign-out</span></div>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+  </ul>
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<script>
+// Handle active state toggle
+const navLinks = document.querySelectorAll('.nav-link');
+
+navLinks.forEach(link => {
+  link.addEventListener('click', function () {
+    // Remove active class from all nav links
+    navLinks.forEach(nav => nav.classList.remove('active'));
+
+    // Add active class to the clicked link
+    this.classList.add('active');
+  });
+});
+</script>

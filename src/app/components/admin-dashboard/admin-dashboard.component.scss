@@ -1,0 +1,38 @@
+.container-fluid {
+  padding: 20px;
+}
+
+.table-responsive {
+  margin-top: 20px;
+}
+
+.table thead {
+  background-color: #007bff;
+  color: white;
+}
+
+.table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.btn-info{
+ 
+    background-color: #007bff;
+    border-color: #007bff;
+    width: 100%;
+    margin-top: 1rem;
+  
+}
+.btn-success {
+  background-color: #007bff;
+  border-color: #007bff;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+
+.badge {
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 12px;
+}

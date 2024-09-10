@@ -1,0 +1,37 @@
+<div class="container-fluid bg-white p-4">
+    <div class="row">
+      <div class="col-lg-12 col-xxl-12">
+        <h4 class="text-primary">File Upload</h4>
+        <p class="info-paragraph mb-4">Upload your files here</p>
+  
+        <!-- Loader -->
+        <div *ngIf="showLoader" class="text-center">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <p>Uploading your files, please wait...</p>
+        </div>
+  
+        <!-- File Dropzone -->
+        <ngx-dropzone (change)="onSelect($event)" (removed)="onRemove($event)">
+          <ngx-dropzone-label>Drag and drop files here or click to select files</ngx-dropzone-label>
+        </ngx-dropzone>
+  
+        <!-- Error and Success Messages -->
+        <div *ngIf="uploadError" class="alert alert-danger mt-3">
+          {{ uploadError }}
+        </div>
+        <div *ngIf="uploadSuccess" class="alert alert-success mt-3">
+          Files uploaded successfully!
+        </div>
+  
+        <!-- Upload Button -->
+        <div class="d-grid gap-2 mt-3">
+          <button class="btn btn-success" (click)="onUpload()" [disabled]="showLoader">
+            Upload
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

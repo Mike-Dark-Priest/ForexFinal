@@ -1,0 +1,64 @@
+
+
+<div class="sign-in-container" *ngIf="user">
+  <div class="sign-in-row w-100 h-100 justify-content-center align-items-center">
+      <div class="sign-in-box p-4 border rounded shadow">
+          <!-- Loader -->
+          <div *ngIf="loading" class="loader">
+              <p>Authenticating...</p>
+          </div>
+
+          <!-- Sign In Form -->
+          <div *ngIf="!isForgotPassword && !loading">
+              <div class="sign-in-header text-center mb-4">
+                  <img src="assets/sbm_logo.png" alt="Logo" class="mb-3" style="width: 100px;">
+                  <h2>FOREX ALLOCATION TRACKER</h2>
+                  <p>Log in to your Account using email and password</p>
+              </div>
+
+              <div class="sign-in-form">
+                  <input class="form-control mb-3" type="email" name="email" [(ngModel)]="user.email" placeholder="Email Address" autocomplete="off">
+                  <input class="form-control mb-3" [type]="user.showPassword ? 'text' : 'password'" name="password" placeholder="Password" [(ngModel)]="user.password">
+
+                  <div class="sign-in-form-check mb-3 d-flex align-items-center justify-content-between">
+                      <div>
+                          <input type="checkbox" class="form-check-input" [(ngModel)]="user.showPassword">
+                          <label class="form-check-label">Show Password</label>
+                      </div>
+                      <div>
+                          <a href="#" class="forgot-password" (click)="forgotPasswordClicked()">Forgot Password?</a>
+                      </div>
+                  </div>
+
+                  <button class="btn btn-primary w-100" (click)="signInWithCognito()">LOGIN</button>
+
+                  <p class="text-center" style="padding-top: 20px;">Not a member? <a routerLink="/sign-up">Sign Up</a></p>
+              </div>
+          </div>
+
+          <!-- Forgot Password Form -->
+          <div *ngIf="isForgotPassword && !loading">
+              <div class="sign-in-header">
+                  <h2>Account Recovery</h2>
+                  <h4 class="text-success">Verification code sent to <strong>{{user.email}}</strong></h4>
+              </div>
+
+              <div class="sign-in-form">
+                  <input class="form-control mb-3" type="text" placeholder="Enter Verification Code" name="verificationCode" [(ngModel)]="user.code">
+                  <input class="form-control mb-3" [type]="user.showPassword ? 'text' : 'password'" name="password" placeholder="Enter New Password" [(ngModel)]="newPassword">
+
+                  <div class="sign-in-form-check mb-3 d-flex align-items-center justify-content-between">
+                      <div>
+                          <input type="checkbox" class="form-check-input" [(ngModel)]="user.showPassword">
+                          <label class="form-check-label">Show Password</label>
+                      </div>
+                  </div>
+
+                  <button class="btn btn-primary w-100" (click)="newPasswordSubmit()">SUBMIT NEW PASSWORD</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<app-message-modal *ngIf="showAlert" (modalClose)="showAlert=false" [message]="alertMessage"></app-message-modal>

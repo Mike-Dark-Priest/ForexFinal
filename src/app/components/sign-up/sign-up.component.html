@@ -1,0 +1,51 @@
+<div class="sign-up-container" *ngIf="user">
+    <div class="sign-up-row w-100 h-100 justify-content-center align-items-center">
+        <div class="sign-up-box p-4 border rounded shadow">
+            <!-- sign up -->
+            <div *ngIf="!isConfirm">
+                <div class="sign-up-header text-center mb-4">
+                    <!-- Logo -->
+                    <img src="assets/sbm_logo.png" alt="Logo" class="mb-3" style="width: 100px;">
+
+                    <h2>FOREX ALLOCATION TRACKER </h2>
+                    <p>Register Your Account Using the Information Below</p>
+                </div>
+
+                <div class="sign-up-form">
+                    <input class="form-control mb-3" type="text" name="givenName" [(ngModel)]="user.givenName" placeholder="First name">
+                    <input class="form-control mb-3" type="text" name="familyName" [(ngModel)]="user.familyName" placeholder="Last name">
+                    <input class="form-control mb-3" type="email" name="email" [(ngModel)]="user.email" placeholder="Email Address">
+                    <input class="form-control mb-3" [type]="user.showPassword ? 'text' : 'password'" name="password" placeholder="Password" [(ngModel)]="user.password">
+                    
+                    <div class="sign-up-form-check mb-3 d-flex align-items-center justify-content-between">
+                        <div>
+                            <input type="checkbox" class="form-check-input" [(ngModel)]="user.showPassword">
+                            <label class="form-check-label">Show Password</label>
+                        </div>
+                        <div>
+                            <p class="mb-3"><a href="/sign-in">Already a member?</a></p>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary w-100" (click)="signUpWithCognito()">REGISTER</button>
+                </div>
+            </div>
+
+            <!-- Confirm Sign-Up -->
+            <div *ngIf="isConfirm">
+                <div class="sign-up-header">
+                    <h2>Enter code</h2>
+                    <h4 class="text-success">A verification code sent to {{user.email}}</h4>
+                </div>
+
+                <div class="sign-up-form">
+                    <input type="text" name="verificationCode" placeholder="Enter verification Code" [(ngModel)]="user.code">
+                    <button (click)="confirmSignUp()">CONFIRM</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<app-message-modal *ngIf="showAlert" (modalClose)="showAlert=false" [message]="alertMessage"></app-message-modal>

@@ -1,0 +1,75 @@
+<div class="upload-section">
+  <!-- Back Button -->
+  <button class="btn btn-secondary mb-3 btn-block" (click)="backToEnquire()">Back</button>
+
+  <!-- File Upload Section -->
+  <div *ngIf="isUploadSectionVisible">
+    <div class="dropzone dropzone-single p-0" data-dropzone="data-dropzone" 
+         data-options='{"url":"valid/url","maxFiles":1,"dictDefaultMessage":"Choose or Drop a file here"}'>
+      <div class="fallback">
+        <input type="file" name="file" (change)="onSelect($event)" />
+      </div>
+      <div class="dz-preview dz-preview-single" *ngIf="files.length > 0">
+        <div class="dz-preview-cover dz-complete">
+       
+          <img *ngIf="imageUrl" src="assets/pdf_icon.png" alt="File preview" class="img-fluid preview-icon mb-4" />
+          <div class="file-preview">
+            <p class="file-name">{{ files[0].name }}</p>
+          </div>
+          <a class="dz-remove text-danger" href="#!" data-dz-remove="data-dz-remove" (click)="onRemove(files[0])">
+            <span class="fas fa-times"></span>
+          </a>
+        </div>
+      </div>
+      <div class="dz-message" data-dz-message="data-dz-message" *ngIf="files.length === 0">
+        <div class="dz-message-text">
+          <i class="fas fa-cloud-upload-alt fa-3x me-2"></i>
+          Drop your file here
+        </div>
+      </div>
+    </div>
+
+    <!-- Upload Button -->
+    <button class="btn btn-primary mt-5 btn-block" *ngIf="files.length > 0 && !isLoading && !isExtracting" (click)="onUpload()">Upload</button>
+
+    <!-- Loader -->
+    <div *ngIf="isLoading" class="text-center mt-3">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Uploading...</span>
+      </div>
+      <p>Uploading...</p>
+    </div>
+
+    <!-- Extracting Loader -->
+    <div *ngIf="isExtracting" class="text-center mt-3">
+      <p>Extracting... {{extractionProgress}}%</p>
+      <!-- Updated to use <progress> for better accessibility -->
+      <progress [value]="extractionProgress" max="100" class="w-100"></progress>
+    </div>
+  </div>
+
+
+
+  <div *ngIf="isDataEditable" class="mt-5 table-background">
+    <h3>Edit Extracted Data</h3>
+    <form (ngSubmit)="onSubmitEditedData()">
+      <table class="table table-bordered">
+        <tbody>
+          <!-- Loop through the keys of extractedData -->
+          <tr *ngFor="let key of objectKeys(extractedData)">
+            <th>{{ key }}</th>
+            <td>
+              <input class="form-control" [(ngModel)]="extractedData[key]" name="{{key}}" />
+            </td>
+          </tr> 
+          <tr>
+            <th>branch</th>
+            <td>
+              <input class="form-control" [(ngModel)]="extractedData.branch" name="branch" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-success mt-3 btn-block" type="submit">Apply</button>
+    </form>
+  </div>

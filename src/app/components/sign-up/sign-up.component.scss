@@ -1,0 +1,80 @@
+.sign-up-container {
+    width: 100%;
+    padding-right: 24px;
+    padding-left: 24px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 100px; 
+    padding-bottom: 100px;
+    align-items: center;
+    background-image: url('../../../assets/background.jpg'); /* Path to your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+
+
+}
+
+@media (min-width: 1200px) {
+    .sign-up-container {
+        max-width: 1200px;
+    }
+}
+
+.sign-up-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -12px;
+    margin-right: -12px;
+}
+
+.sign-up-box {
+
+    background-color: white;
+    padding: 48px 56px;
+    border: 2px solid #0067b8;
+    box-shadow: rgba(17,12,46,0.15) 0px 48px 100px 0px;
+    
+}
+
+.sign-up-header h2 {
+    font-weight: bold;
+    font-size: 24px;
+    color: #333;
+}
+
+.sign-up-header p {
+    margin-top: 10px;
+    font-weight: normal;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.sign-up-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.sign-up-form-check {
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+.sign-up-form button {
+    padding: 12px 10px;
+    border: 0;
+    background: #0067b8;
+    border-radius: 3px;
+    margin-top: 10px;
+    color: #fff;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.sign-up-form button:hover {
+    background-color: #0056a8;
+}
+
+.text-success {
+    color: green;
+}
