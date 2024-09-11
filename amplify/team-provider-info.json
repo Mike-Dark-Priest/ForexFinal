@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-forextracker-dev-f4924-authRole",
+      "UnauthRoleArn": "arn:aws:iam::442042519416:role/amplify-forextracker-dev-f4924-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::442042519416:role/amplify-forextracker-dev-f4924-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-forextracker-dev-f4924-deployment",
+      "UnauthRoleName": "amplify-forextracker-dev-f4924-unauthRole",
+      "StackName": "amplify-forextracker-dev-f4924",
+      "StackId": "arn:aws:cloudformation:us-east-1:442042519416:stack/amplify-forextracker-dev-f4924/aeac2650-6feb-11ef-8e8b-12210cc16605",
+      "AmplifyAppId": "dnqfvb83dzdpk"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "dnqfvb83dzdpk",
+          "type": "manual"
+        }
+      }
+    }
+  }
+}
